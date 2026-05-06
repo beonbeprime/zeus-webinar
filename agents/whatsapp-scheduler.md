@@ -23,14 +23,15 @@ persona_profile:
 
 persona:
   role: "Transformar a sequência de mensagens em comandos concretos da Evolution API prontos para agendar"
-  identity: "Especialista em automação WhatsApp via Evolution API — instância allyssons já configurada"
+  identity: "Especialista em automação WhatsApp via Evolution API — configurado com as credenciais da sua instância"
   style: "Código pronto para copiar e executar. Sem overhead."
   focus: "Agendar cada mensagem no horário certo, no grupo certo, com a formatação certa"
 
 evolution_api_config:
-  base_url: "http://evolution.fabricadementores.com"
-  instance: "allyssons"
-  header: "apikey: Eliel@Alves123"
+  base_url: "https://SEU_SERVIDOR_EVOLUTION_API"
+  instance: "SUA_INSTANCIA"
+  header: "apikey: SUA_API_KEY"
+  nota: "Preencher com as credenciais da sua própria instância Evolution API"
 
 scheduling_methods:
   send_text_message:
@@ -52,9 +53,9 @@ nodejs_scheduler_template: |
   const cron = require('node-cron');
   const axios = require('axios');
 
-  const API_URL = 'http://evolution.fabricadementores.com';
-  const INSTANCE = 'allyssons';
-  const API_KEY = 'Eliel@Alves123';
+  const API_URL = 'https://SEU_SERVIDOR_EVOLUTION_API'; // ex: https://evolution.seudominio.com
+  const INSTANCE = 'SUA_INSTANCIA';                     // nome da instância no seu servidor
+  const API_KEY = 'SUA_API_KEY';                        // chave de autenticação da instância
   const GROUP_ID = '{GROUP_ID}@g.us';
 
   async function sendMessage(text) {
@@ -104,13 +105,13 @@ execution_instructions: |
   8. Para PM2: npm install -g pm2 && pm2 start scheduler-webinar-{nome}.js
 
   IMPORTANTE: O servidor precisa estar rodando no horário dos envios.
-  Recomendado: rodar na VPS zeus.fabricadementores.com
+  Recomendado: rodar em um VPS para garantir que o scheduler não pare.
 
 vps_deployment: |
   # Para rodar na VPS (garante que não para)
 
   1. Copiar arquivo via SSH:
-     scp scheduler-webinar-{nome}.js root@91.98.121.5:/root/schedulers/
+     scp scheduler-webinar-{nome}.js root@IP_DO_SEU_VPS:/root/schedulers/
 
   2. Na VPS, instalar e rodar:
      cd /root/schedulers

@@ -48,9 +48,9 @@ Após grupo do WhatsApp criado e datas confirmadas pelo calendar-intelligence.
 const schedule = require('node-cron');
 const axios = require('axios');
 
-const EVOLUTION_URL = 'https://evolution.fabricadementores.com';
-const INSTANCE = 'allyssons';
-const API_KEY = 'Eliel@Alves123';
+const EVOLUTION_URL = 'https://SEU_SERVIDOR_EVOLUTION_API'; // ex: https://evolution.seudominio.com
+const INSTANCE = 'SUA_INSTANCIA';                           // nome da instância no seu servidor
+const API_KEY = 'SUA_API_KEY';                              // chave de autenticação
 const GROUP_ID = 'XXXX@g.us'; // preencher com ID real do grupo
 
 async function sendMessage(text) {
@@ -70,21 +70,21 @@ schedule.schedule('0 18 DD MM *', () => sendMessage(`...`));
 ## Deploy na VPS Zeus
 ```bash
 # Upload do arquivo
-scp scheduler-webinar-{nome}.js root@91.98.121.5:/root/schedulers/
+scp scheduler-webinar-{nome}.js root@IP_DO_SEU_VPS:/root/schedulers/
 
 # Instalar dependências
-ssh root@91.98.121.5 "cd /root/schedulers && npm install node-cron axios"
+ssh root@IP_DO_SEU_VPS "cd /root/schedulers && npm install node-cron axios"
 
 # Iniciar com PM2 (fica rodando mesmo após reinicialização)
-ssh root@91.98.121.5 "pm2 start scheduler-webinar-{nome}.js --name 'webinar-{nome}'"
-ssh root@91.98.121.5 "pm2 save"
+ssh root@IP_DO_SEU_VPS "pm2 start scheduler-webinar-{nome}.js --name 'webinar-{nome}'"
+ssh root@IP_DO_SEU_VPS "pm2 save"
 ```
 
 ## Como Encontrar o ID do Grupo
 ```bash
 # Via Evolution API
-curl -X GET "https://evolution.fabricadementores.com/group/fetchAllGroups/allyssons?getParticipants=false" \
-  -H "apikey: Eliel@Alves123" | grep -i "nome-do-grupo"
+curl -X GET "https://SEU_SERVIDOR_EVOLUTION_API/group/fetchAllGroups/SUA_INSTANCIA?getParticipants=false" \
+  -H "apikey: SUA_API_KEY" | grep -i "nome-do-grupo"
 ```
 
 ## Output

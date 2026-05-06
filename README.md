@@ -143,7 +143,7 @@ big idea, copy, narrativa, pitch, conceito visual, página, oferta, anúncios, d
 | Serviço | Uso | Plano gratuito |
 |---------|-----|---------------|
 | Brevo | Envio de emails | 300/dia grátis |
-| Evolution API | WhatsApp (VPS Zeus) | Instância: allyssons |
+| Evolution API | WhatsApp (VPS próprio) | Configure com suas credenciais |
 | Meta Ads | Anúncios | Pago por resultado |
 | Google Fonts | Tipografia do evento | 100% gratuito |
 | PM2 | Scheduler WA na VPS | Open source |
