@@ -1,0 +1,17 @@
+# Registro de projetos de webinario
+projects: []
+# Formato por projeto:
+# - id: "projeto-nome"
+#   name: "Nome do Projeto"
+#   status: "planning|captation|live|replay|closed|analysis"
+#   model: "live|automated|hybrid"
+#   ticket: "free|paid|application"
+#   created_at: "YYYY-MM-DD"
+#   metrics:
+#     cpl: null
+#     capture_rate: null
+#     attendance: null
+#     retention: null
+#     conversion: null
+#     roas: null
+#     replay_revenue_pct: null
